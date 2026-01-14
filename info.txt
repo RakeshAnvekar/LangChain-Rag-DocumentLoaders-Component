@@ -1,0 +1,149 @@
+
+RAG → is the technique where model retrieves relevant documents from the knowledge base and then uses them as context to generate accurate responses.
+
+Benefits of RAG
+	•	Up-to-date information
+	•	Better privacy
+	•	No limit on document size
+
+To build a RAG-based application, we have some important components:
+	1.	Document loaders
+	2.	Text splitters
+	3.	Vector database
+	4.	Retrievers
+
+⸻
+
+1) Document Loaders
+
+In LangChain, there are 100s of document loaders.
+
+They are components used to load data from various sources into a standardized format, which can then be used for chunking, embedding, retrieval, and generation.
+
+The standardized format is Document.
+
+The document format looks like:
+
+Document(
+  page_content="the actual text content",
+  metadata={"source":"filename.pdf", ...}
+)
+
+1 → TextLoader
+
+It is a simple and commonly used document loader in LangChain that reads plain text (.txt) files and converts them into LangChain Document objects.
+
+Use case:
+Ideal for loading chat logs, transcripts, code snippets, or any other plain text data into LangChain pipelines.
+
+Limitation:
+Works only with .txt files.
+text loader:
+
+it takes text files and convert in to document object.
+
+you use any kinf of the loaders ,each document loader of langhain it doads as list of document 
+
+py  pdf loader
+
+py pdf loader s the doeument loader in langchain used to load the content fro pdf files and convert each objevt in to a document object
+
+
+[
+
+
+    Document(page_content="Text from page 1",metadata={"page":0,"source":"file1.pdf"}),
+    Document(page_content="Text from page 2",metadata={"page":0,"source":"file2.pdf"})
+    ...
+
+]
+
+think we have 20 pages in the pdf.
+when we pass to pypdf loader then it wll return 20 dpcument object .
+
+it measnd afpert processing we get list of 20 document objevt
+each document object has dounet and metadata.
+
+
+
+limitation
+
+
+pypdf loader interbally use pypdf linrary under the hood, so this docuent loader isnot great with scanned pdf orcomplex  layouts.
+py pdf laoder is used only that time if have mostly  text data , 
+
+to over come this kind od issue langcain  ad some more pdf loaders suh as
+pdf's with tablescolims -> PDFPlumberLoader
+
+scanned or image pdf  ->unstructuredPDFLoader or amazonExtractPdfLoader
+neeed layout and image daa -> pymupdfloader   
+
+
+we hae leaner to load single text file or singke pdf file , what if if yu have folder
+
+te folder contains multiple text filesnand multiple pdf files , and if you want to laod thoese in one go
+
+then we have DirectoryLoader
+
+
+Directory loader loads let yu load multiple documents from a directory or folder of files.
+
+
+
+Glob pattern                       
+"**/*."      all .txt files in all subfolder
+"*.pdf" all .pdf files in th root directory
+"data/*.csv"   all .csv  files in the data/ folder
+
+"**/*"  all files any type,all folder
+
+**   recursive search through subfolder
+
+
+one issue is docuent loader will take more time to laod pdf ifthe count and zie is more .
+
+we  can overcome from this by using lazylaoding
+
+loader.lazy_laod()
+
+load():
+it does egar laoding.
+
+eger loading loads everyting at once
+return a list of documents object
+loads all documents immeditely into memory
+best when the number of documents is small
+you  want eventyng laoded upfront
+
+lazy_laod()
+loads on demand
+lazy loaing returns generator of document object
+documents are not all loaded at once, 
+bes when you are deasing wih large documents or lot of filed,
+
+
+web based loader
+
+web based laodr is document loader in langchain used to load and exact content from web pages(urls)
+
+it uses two lib 
+1) request
+2) builtifulsoup
+
+
+when to use:
+for blogs,news,articles,public web pages where the content is primery text based and static.
+
+limitation:
+doesnot handle javascrpt hevay pages (use seleniumurlloader for that)
+
+loads only static content
+------
+
+csv loader
+
+for each row it create new document object
+
+
+
+

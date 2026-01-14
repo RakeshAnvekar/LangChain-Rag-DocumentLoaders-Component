@@ -1,0 +1,21 @@
+LangChain is a framework designed to help developers build applications
+powered by large language models (LLMs).
+
+It provides modular components such as document loaders, text splitters,
+prompt templates, chains, and agents.
+
+This text file is used for testing the TextLoader functionality in Python.
+The loader reads the content and converts it into Document objects.
+
+Key use cases include:
+- Question answering systems
+- Chatbots
+- Document summarization
+- Retrieval-Augmented Generation (RAG)
+
+Random notes:
+Today the system processed 1,245 records successfully.
+Error rate was below 0.02 percent.
+Next deployment is scheduled for Friday at 10:00 AM.
+
+End of sample text.

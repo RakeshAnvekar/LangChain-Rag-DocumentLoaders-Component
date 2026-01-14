@@ -1,0 +1,6 @@
+employee_id,name,department,role,location,experience_years,salary_lpa,performance_rating,joining_date,email
+EMP001,Rakesh Anvekar,Engineering,Senior Software Engineer,Bengaluru,7,28.5,4.5,2018-06-18,rakesh.anvekar@company.com
+EMP002,Anita Sharma,Product,Product Manager,Hyderabad,9,32.0,4.7,2016-04-11,anita.sharma@company.com
+EMP003,Vikram Rao,Data Science,ML Engineer,Pune,5,22.8,4.2,2020-01-27,vikram.rao@company.com
+EMP004,Sneha Iyer,Design,UX Designer,Mumbai,6,18.6,4.3,2019-09-05,sneha.iyer@company.com
+EMP005,Amit Verma,QA,Automation Test Engineer,Noida,8,20.4,4.4,2017-02-14,amit.verma@company.com
