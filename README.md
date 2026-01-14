@@ -180,6 +180,3 @@ Web-based loaders are used to extract content from web pages (URLs).
 
 Document loaders are the first and most critical step in building a RAG pipeline. Choosing the right loader based on your data type ensures better chunking, embeddings, and retrieval quality.
 
----
-
-**Happy Building with LangChain & RAG 🚀**
